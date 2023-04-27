@@ -1,42 +1,9 @@
 #!/usr/bin/env python3
 
+import os
 import random
 import string
 
-"""
-chprompt
-showpid
-pwd
-cd
-jobs
-fg
-bg
-quit
-kill
-
-sleep
-ls
-whoami
-cat
-grep
-touch
-rm
-
-execute
-
->>
->
-|
-|&
-
-setcore
-getfiletype
-chmod
-timeout
-
-^Z
-^C
-"""
 
 
 TEST_AMOUNT = 3
@@ -145,7 +112,7 @@ def gen_chmod():
 
 def gen_timeout():
     _random_command = random.choice(command_list)
-    while _random_command == gen_timeout or _random_command == gen_ctrl_Z() or :
+    while _random_command == gen_timeout or _random_command == gen_ctrl_Z() or _random_command == gen_ctrl_C :
         _random_command = random.choice(command_list)
     return rss() + "timeout" + rss() + str(random.randint(1, 30)) + rss() + _random_command() + rss() + aa() + rss() + END_LINE
 
@@ -158,7 +125,39 @@ def gen_ctrl_C():
     return "^C" + END_LINE
 
 
-command_list = [gen_chprompt, gen_showpid, gen_pwd, gen_jobs, gen_fg, gen_bg, gen_quit, gen_kill, gen_setcore, gen_getfiletype, gen_chmod, gen_timeout, gen_ctrl_Z, gen_ctrl_C ]
+def gen_sleep():
+    return rss() + "sleep" + rss() + random.randint(1, 100000)\
+           + rss() + rs() + rss() + aa() + rss() + END_LINE
+
+
+def gen_ls():
+    return rss() + "ls" + rss() + rs() + rss() + aa() + rss() + aa() + rss() + END_LINE
+
+
+def gen_whoami():
+    return rss() + "whoami" + rss() + rs() + rss() + aa() + rss() + aa() + rss() + END_LINE
+
+def gen_cat():
+    return rss() + "cat" + rss() + FILE_PATH_LIST[random.randint(0, len(FILE_PATH_LIST) - 1)]\
+           + rss() + rs() + rss() + aa() + rss() + END_LINE
+
+
+"""
+consider adding:
+grep
+touch
+rm
+
+execute a file
+
+>>
+>
+|
+|&
+
+"""
+
+command_list = [gen_chprompt, gen_showpid, gen_pwd, gen_jobs, gen_fg, gen_bg, gen_quit, gen_kill, gen_setcore, gen_getfiletype, gen_chmod, gen_timeout, gen_ctrl_Z, gen_ctrl_C, gen_sleep, gen_ls, gen_cat, gen_whoami ]
 
 for i in range(0, TEST_AMOUNT):
     f_test = open(f'./inFiles/in{i}', 'w')
