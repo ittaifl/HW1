@@ -1,0 +1,13 @@
+----this is a sample-------
+
+hello
+my name is Tony
+smash pid is 69
+smash pid is 69
+smash pid is 42
+smash pid is 69
+[1] sleep 100 & : 128 40 secs
+[2] sleep 1000& : 129 33 secs
+[3] sleep 200 : 130 24 secs (stopped)
+[4] sleep 100 5 : 131 15 secs (stopped)
+[5] sleep 4000 60 & : 132 3 secs

@@ -4,7 +4,7 @@ import os
 import random
 import string
 
-
+os.chdir('C:/Users/Antony/Desktop/_tests/Spring_2023_tests/OS/wet1')
 
 TEST_AMOUNT = 3
 LINES_PER_TEST = 100
@@ -126,7 +126,7 @@ def gen_ctrl_C():
 
 
 def gen_sleep():
-    return rss() + "sleep" + rss() + random.randint(1, 100000)\
+    return rss() + "sleep" + rss() + str(random.randint(1, 100000))\
            + rss() + rs() + rss() + aa() + rss() + END_LINE
 
 
@@ -160,7 +160,7 @@ execute a file
 command_list = [gen_chprompt, gen_showpid, gen_pwd, gen_jobs, gen_fg, gen_bg, gen_quit, gen_kill, gen_setcore, gen_getfiletype, gen_chmod, gen_timeout, gen_ctrl_Z, gen_ctrl_C, gen_sleep, gen_ls, gen_cat, gen_whoami ]
 
 for i in range(0, TEST_AMOUNT):
-    f_test = open(f'./inFiles/in{i}', 'w')
+    f_test = open(f'./inFiles/test{i}.in', 'w')
     for j in range(0, LINES_PER_TEST):
         random_command = random.choice(command_list)
         f_test.write(random_command())

@@ -1,0 +1,11 @@
+hello
+my name is Tony
+smash pid is __SPID
+smash pid is __SPID
+smash pid is __BAD_SPID
+smash pid is __SPID
+[1] sleep 100 & : __PID __TIME secs
+[2] sleep 1000& : __PID __TIME secs
+[3] sleep 200 : __PID __TIME secs (stopped)
+[4] sleep 100 5 : __PID __TIME secs (stopped)
+[5] sleep 4000 60 & : __PID __TIME secs
